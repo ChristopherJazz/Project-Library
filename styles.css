@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* COLORS */
+:root {
+  --brown-dark: #4b2e2e;
+  --brown: #7a4e2d;
+  --beige: #f5f0e6;
+  --paper: #fffaf3;
+  --text: #2b2b2b;
+}
+
+/* BODY */
+body {
+  background: var(--beige);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background: var(--brown-dark);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  letter-spacing: 2px;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* INTRO */
+.intro {
+  margin-bottom: 30px;
+}
+
+.intro h2 {
+  margin-bottom: 10px;
+}
+
+/* LIBRARY SECTION */
+.library h3 {
+  margin-bottom: 15px;
+}
+
+/* BOOK LIST */
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+/* BOOK CARD */
+.book-card {
+  background: var(--paper);
+  border-left: 5px solid var(--brown);
+  padding: 15px;
+  border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--brown-dark);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.open-modal {
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  background: var(--brown);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.open-modal:hover {
+  background: var(--brown-dark);
+}
+
+/* OVERLAY */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+/* MODAL BOX */
+.modal {
+  background: var(--paper);
+  padding: 25px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ACTIVE MODAL */
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* FORM */
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-form input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* BUTTONS */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.form-actions button {
+  padding: 8px 12px;
+  border: none;
+  background: var(--brown);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-actions button:hover {
+  background: var(--brown-dark);
+}
