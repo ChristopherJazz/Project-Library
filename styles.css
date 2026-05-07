@@ -145,8 +145,14 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-}
+  margin-top: 10px;
+  justify-content: flex-start;
+} 
 
+.checkbox input {
+  width: 16px;
+  height: 16px;
+}
 /* BUTTONS */
 .form-actions {
   display: flex;
@@ -165,4 +171,34 @@ body {
 
 .form-actions button:hover {
   background: var(--brown-dark);
+}
+
+.delete-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.delete-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.delete-modal {
+  background: var(--paper);
+  padding: 20px;
+  border-radius: 8px;
+  width: 280px;
+  text-align: center;
 }
