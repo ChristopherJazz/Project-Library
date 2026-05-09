@@ -67,6 +67,41 @@ body {
   border-left: 5px solid var(--brown);
   padding: 15px;
   border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* CARD BUTTONS */
+.read-btn,
+.delete-btn {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* READ BUTTON */
+.read-btn {
+  background: #6d8b74;
+  color: white;
+}
+
+.read-btn:hover {
+  opacity: 0.9;
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+  background: #a94442;
+  color: white;
+}
+
+.delete-btn:hover {
+  opacity: 0.9;
 }
 
 /* FOOTER */

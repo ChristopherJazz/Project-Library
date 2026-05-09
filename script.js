@@ -86,8 +86,16 @@ function renderBooks() {
     const pages = document.createElement('p');
     pages.textContent = `Pages: ${book.pages}`;
 
-    const read = document.createElement('p');
-    read.textContent = book.read ? 'Read' : 'Not Read';
+    const readBtn = document.createElement('button');
+      readBtn.classList.add('read-btn');
+
+      readBtn.textContent = book.read
+        ? 'Read'
+        : 'Not Read';
+
+      readBtn.addEventListener('click', () => {
+      toggleRead(book.id);
+});
 
     // DELETE BUTTON
     const deleteBtn = document.createElement('button');
@@ -118,18 +126,30 @@ function renderBooks() {
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
-    card.appendChild(read);
+    card.appendChild(readBtn);
     card.appendChild(deleteBtn);
 
     bookList.appendChild(card);
   });
 }
-
+// Delete function
 function deleteBook(id) {
   const index = myLibrary.findIndex(book => book.id === id);
 
   if (index !== -1) {
     myLibrary.splice(index, 1);
+    renderBooks();
+  }
+}
+
+// Toggle Read button
+function toggleRead(id) {
+  const book = myLibrary.find(
+    book => book.id === id
+  );
+
+  if (book) {
+    book.read = !book.read;
     renderBooks();
   }
 }
@@ -140,3 +160,14 @@ const confirmDeleteBtn = document.querySelector('.confirm-delete');
 const cancelDeleteBtn = document.querySelector('.cancel-delete');
 
 let bookToDeleteId = null;
+
+
+// Close delete modal when clicking outside the modal box
+
+deleteModal.addEventListener('click', (event) => {
+  if (event.target === deleteModal) {
+    deleteModal.classList.remove('active');
+    bookToDeleteId = null;
+  }
+});
+
